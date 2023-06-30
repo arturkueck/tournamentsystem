@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- create_tournament.html -->
+
+    <form method="post" action="{% url 'create_tournament' %}">
+        {% csrf_token %}
+
+        <label for="date">Datum:</label>
+        <input type="text" id="date" name="date">
+
+        <label for="tournament_type">Turniertyp:</label>
+        <select id="tournament_type" name="tournament_type">
+            <option value="schnellschach">Schnellschach</option>
+            <option value="blitzschach">Blitzschach</option>
+            <option value="thematurnier">Thematurnier</option>
+        </select>
+
+        <label for="tournament_system">Turniersystem:</label>
+        <select id="tournament_system" name="tournament_system">
+            <option value="rundenturnier">Rundenturnier</option>
+            <option value="schweizersystem">Schweizersystem-Turnier</option>
+        </select>
+
+        <label for="double_rounds">Doppelrunden (nur für Rundenturniere):</label>
+        <input type="checkbox" id="double_rounds" name="double_rounds">
+
+        <button type="submit">Turnier erstellen</button>
+    </form>
+
+</body>
+</html>
